@@ -10,15 +10,16 @@
  */
 
 use Tutor\Ecommerce\CartController;
+use Tutor\Ecommerce\Settings;
 use Tutor\Ecommerce\Tax;
 use Tutor\Models\CartModel;
 
-$course_id                = get_the_ID();
-$is_logged_in             = is_user_logged_in();
-$user_id                  = get_current_user_id();
-$enable_guest_course_cart = false;
-$required_loggedin_class  = 'tutor-native-add-to-cart';
-if ( ! $is_logged_in && ! $enable_guest_course_cart ) {
+$course_id               = get_the_ID();
+$is_logged_in            = is_user_logged_in();
+$user_id                 = get_current_user_id();
+$guest_checkout_enabled  = Settings::guest_checkout_enabled();
+$required_loggedin_class = 'tutor-native-add-to-cart';
+if ( ! $is_logged_in && ! $guest_checkout_enabled ) {
 	$required_loggedin_class = apply_filters( 'tutor_enroll_required_login_class', 'tutor-open-login-modal' );
 }
 

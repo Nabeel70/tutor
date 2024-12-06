@@ -239,6 +239,20 @@ class Settings {
 							'default' => 'on',
 							'desc'    => __( 'Allow users to apply the coupon code during checkout.', 'tutor' ),
 						),
+						array(
+							'key'     => OptionKeys::GUEST_CHECKOUT_ENABLED,
+							'type'    => 'toggle_switch',
+							'label'   => __( 'Enable Guest Checkout', 'tutor' ),
+							'default' => 'off',
+							'desc'    => __( 'Allow students to purchase courses without an account.', 'tutor' ),
+						),
+						array(
+							'key'     => OptionKeys::QUICK_CHECKOUT_ENABLED,
+							'type'    => 'toggle_switch',
+							'label'   => __( 'One Click Checkout', 'tutor' ),
+							'default' => 'off',
+							'desc'    => __( 'Skip the cart and send your customers directly to checkout with one click.', 'tutor' ),
+						),
 					),
 				),
 			),
@@ -292,6 +306,15 @@ class Settings {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Check guest checkout is enabled or not.
+	 *
+	 * @since 3.1.0
+	 */
+	public static function guest_checkout_enabled() {
+		return (bool) tutor_utils()->get_option( OptionKeys::GUEST_CHECKOUT_ENABLED );
 	}
 
 	/**

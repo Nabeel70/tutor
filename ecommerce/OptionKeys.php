@@ -30,6 +30,10 @@ class OptionKeys {
 	const IS_TAX_APPLICABLE    = 'is_tax_applicable';
 	const IS_COUPON_APPLICABLE = 'is_coupon_applicable';
 
+	// Checkout settings.
+	const GUEST_CHECKOUT_ENABLED = 'guest_checkout_enabled';
+	const QUICK_CHECKOUT_ENABLED = 'quick_checkout_enabled';
+
 	// Billing Information Settings.
 	const BILLING_ADDRESS      = 'billing_address';
 	const BILLING_PHONE_NUMBER = 'billing_phone_number';
